@@ -8,45 +8,6 @@ const video = document.querySelector(".videos-thumbcontaienr video");
 const magnetH4 = document.querySelector(".obeys-header h4");
 let flag = 0;
 
-// function locomotivefnc(){
-//     gsap.registerPlugin(ScrollTrigger);
-
-//     const locoScroll = new LocomotiveScroll({
-//       el: document.querySelector(".obeys-main"),
-//       smooth: true,
-    
-//       // for tablet smooth
-//       tablet: { smooth: true },
-    
-//       // for mobile
-//       smartphone: { smooth: true }
-//     });
-//     locoScroll.on("scroll", ScrollTrigger.update);
-    
-//     ScrollTrigger.scrollerProxy(".obeys-main", {
-//       scrollTop(value) {
-//         return arguments.length
-//           ? locoScroll.scrollTo(value, 0, 0)
-//           : locoScroll.scroll.instance.scroll.y;
-//       },
-//       getBoundingClientRect() {
-//         return {
-//           top: 0,
-//           left: 0,
-//           width: window.innerWidth,
-//           height: window.innerHeight
-//         };
-//       }
-    
-//     });
-    
-//     ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
-    
-//     ScrollTrigger.refresh();
-    
-      
-// }
-
 
 function websitepreloader(){
     obeys_tl.from(".website-preloader .loader-text>.text-come-up,.now-text",{
@@ -211,7 +172,7 @@ function videoHandler(){
 }
 
 
-// locomotivefnc()
+
 websitepreloader()
 sherjs()
 videoHandler()
