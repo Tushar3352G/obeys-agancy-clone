@@ -7,6 +7,45 @@ const vidthumb = document.querySelector(".videos-thumbimg");
 const video = document.querySelector(".videos-thumbcontaienr video");
 const magnetH4 = document.querySelector(".obeys-header h4");
 let flag = 0;
+const isMobileDevice = /Mobi/.test(navigator.userAgent);
+function locomotivefnc(){
+    gsap.registerPlugin(ScrollTrigger);
+
+    const locoScroll = new LocomotiveScroll({
+      el: document.querySelector(".obeys-main"),
+      smooth: true,
+    
+      // for tablet smooth
+      tablet: { smooth: true },
+    
+      // for mobile
+      smartphone: { smooth: true }
+    });
+    locoScroll.on("scroll", ScrollTrigger.update);
+    
+    ScrollTrigger.scrollerProxy(".obeys-main", {
+      scrollTop(value) {
+        return arguments.length
+          ? locoScroll.scrollTo(value, 0, 0)
+          : locoScroll.scroll.instance.scroll.y;
+      },
+      getBoundingClientRect() {
+        return {
+          top: 0,
+          left: 0,
+          width: window.innerWidth,
+          height: window.innerHeight
+        };
+      }
+    
+    });
+    
+    ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
+    
+    ScrollTrigger.refresh();
+    
+      
+}
 
 
 function websitepreloader(){
@@ -62,6 +101,7 @@ function websitepreloader(){
 
 
 function sherjs(){
+
 Shery.imageEffect(".imgboxani", {
         style: 4,
         // debug: true,
@@ -83,13 +123,14 @@ Shery.mouseFollower({
     duration: 0.5,
     scale:2,
 });
-
+    
 }
 
 
 function videoHandler(){
 
-    
+ 
+    if (!isMobileDevice) {
     videocontainer.addEventListener("mouseenter",function(){
         videocontainer.addEventListener("mousemove",function(dets){
             gsap.to(vidcursor,{
@@ -123,6 +164,10 @@ function videoHandler(){
 
     })
 
+    sherjs()
+}
+else{
+
     videocontainer.addEventListener("click",function(){
 
 
@@ -138,7 +183,8 @@ function videoHandler(){
             })
             gsap.to(vidcursor,{
                 scale:0.5,
-            
+                top:"0%",
+                left:"80%",
             })
             vidcursor.innerHTML = `<svg class="button__pause-icon" width="20" height="24" viewBox="0 0 20 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="visibility: inherit; opacity: 1;">
             <path d="M0 24V0H7.36842V24H0Z" fill="white"></path>
@@ -157,7 +203,8 @@ function videoHandler(){
             })
             gsap.to(vidcursor,{
                 scale:1,
-            
+                left:"50%",
+                top:"50%",
             })
             vidcursor.innerHTML = `<svg class="button__play-icon" width="20" height="24" viewBox="0 0 20 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M20 12L2.43406e-07 24L-7.15256e-07 -8.74228e-07L20 12Z" fill="white"></path>
@@ -169,10 +216,13 @@ function videoHandler(){
 
   
     })
+    
 }
 
 
+  }
 
-// websitepreloader()
-sherjs()
+
+locomotivefnc()
 videoHandler()
+websitepreloader()

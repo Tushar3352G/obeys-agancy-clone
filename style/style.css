@@ -1003,7 +1003,7 @@ margin-bottom:2vw;
 
     .obeys-fold5 .obeys-marquee .obeys-p {
         white-space: nowrap;
-        width: 63rem;
+        width: 69rem;
         padding-right:6vw;
     }
 
@@ -1015,7 +1015,7 @@ margin-bottom:2vw;
         width: 94%;
         margin-inline:auto;
         padding-inline:0;
-        height: 85vh;
+        height: 75vh;
     }
 
     .footer-links{
