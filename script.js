@@ -166,7 +166,7 @@ function videoHandler(){
 
     sherjs()
 }
-else{
+
 
     videocontainer.addEventListener("click",function(){
 
@@ -217,7 +217,7 @@ else{
   
     })
     
-}
+
 
 
   }

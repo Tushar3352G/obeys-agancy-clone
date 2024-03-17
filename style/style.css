@@ -30,10 +30,12 @@ html,body{
 @font-face{
     font-family:Silk-Light;
     src:url(../fonts/silkserif-lightitalic-webfont.otf);
+    font-display: swap;
 }
 @font-face{
     font-family:"plain Light";
     src:url(../fonts/plain-light-webfont.woff);
+    font-display: swap;
 }
 
 
