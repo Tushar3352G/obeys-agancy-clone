@@ -173,6 +173,6 @@ function videoHandler(){
 
 
 
-websitepreloader()
+// websitepreloader()
 sherjs()
 videoHandler()
